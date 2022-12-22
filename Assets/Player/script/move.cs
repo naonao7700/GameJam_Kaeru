@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class move : MonoBehaviour
 {
-    public bool waterFlag;
+   
     public float speed;
     public float speedwater;
     // Start is called before the first frame update
     void Start()
     {
-        waterFlag = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool waterFlag = GameManager.GetWaterFlag();
         if (waterFlag == false)
         {
             if (Input.GetKey(KeyCode.D))  //

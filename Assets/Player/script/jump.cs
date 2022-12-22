@@ -7,7 +7,7 @@ public class jump : MonoBehaviour
     private float jumpcount;
     public float Jump;
     public float interbal;
-    public bool waterFlag;
+  
     public float jumpup;
     public float jumpdown;
     Rigidbody2D rd;
@@ -18,7 +18,7 @@ public class jump : MonoBehaviour
     {
         
         interbal = 0;
-        waterFlag = false;
+     
         rd = this.GetComponent<Rigidbody2D>();
 
     }
@@ -26,6 +26,7 @@ public class jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool waterFlag = GameManager.GetWaterFlag();
         if (waterFlag == false)
         {
             if (jumpcount == 0)

@@ -13,6 +13,9 @@ public class PlayerObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameManager.OnWaterChange(!GameManager.GetWaterFlag());
+        }
     }
 }

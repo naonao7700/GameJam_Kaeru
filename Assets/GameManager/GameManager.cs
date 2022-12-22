@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private OxygenBar oxygenBar;   //_‘fƒQ[ƒW
     [SerializeField] private GameTimer gameTimer;    //ƒQ[ƒ€ƒ^ƒCƒ}[
+    [SerializeField] private Water water;   //…
 
     private float timer;
     private bool waterFlag;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public static void OnWaterChange( bool waterFlag )
     {
         gameManager.waterFlag = waterFlag;
+        gameManager.water.SetWaterFlag(waterFlag);
     }
 
     //_‘fƒQ[ƒW‚ğæ“¾‚·‚é
@@ -60,5 +62,6 @@ public class GameManager : MonoBehaviour
     {
         SetOxygenValue(100);
         gameTimer.ResetTimer();
+        OnWaterChange(false);
     }
 }
