@@ -15,9 +15,13 @@ public class Water : MonoBehaviour
 
     private Vector3 startPos;
     private Vector3 endPos;
+    private bool waterFlag;
+
+    public bool GetWaterFlag() => waterFlag;
 
     public void SetWaterFlag( bool value )
     {
+        waterFlag = value;
         waterTimer.Reset();
         if( value )
         {
