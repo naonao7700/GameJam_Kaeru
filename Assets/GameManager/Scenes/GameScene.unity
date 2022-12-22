@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48fadc0a1193aa4faf9ea8438cd200a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect: {fileID: 0}
+  rect: {fileID: 721744423}
   image: {fileID: 721744421}
   waterPos: {x: 0, y: 0, z: 0}
   groundPos: {x: 0, y: -540, z: 0}
@@ -310,6 +310,86 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Size.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Tiles.Array.size
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Tiles.Array.data[112].first.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Tiles.Array.data[112].first.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[1].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileColorArray.Array.data[1].m_Data.a
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileColorArray.Array.data[1].m_Data.b
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileColorArray.Array.data[1].m_Data.g
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileColorArray.Array.data[1].m_Data.r
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[0].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileColorArray.Array.data[1].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_RefCount
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Tiles.Array.data[112].second.m_AllTileFlags
+      value: 1073741825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Tiles.Array.data[112].second.m_TileColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Tiles.Array.data[112].second.m_TileSpriteIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727040, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_Tiles.Array.data[112].second.m_TileObjectToInstantiateIndex
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727041, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481537727041, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3509758481537727071, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -518,7 +598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Jump: 8
   interbal: 0
-  jumpup: 5
+  jumpup: 3
   jumpdown: 0.05
   velocity: {x: 0, y: 0}
   Groundcount: 0
@@ -534,8 +614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db174ddc36528564cb5e653df4b13d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  speedwater: 50
+  speed: 5
+  speedwater: 10
   velocity: {x: 0, y: 0}
 --- !u!114 &1684321549
 MonoBehaviour:
