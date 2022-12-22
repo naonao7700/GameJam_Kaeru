@@ -446,6 +446,10 @@ MonoBehaviour:
   oxygenBar: {fileID: 2875417092132254877}
   gameTimer: {fileID: 2875417091287405451}
   water: {fileID: 5149969065317515757}
+  oxygenTimer:
+    count: 0
+    time: 2
+  oxygenDamage: 1
 --- !u!1 &8440222426054375281
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,8 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameTimer gameTimer;    //ゲームタイマー
     [SerializeField] private Water water;   //水
 
+    [SerializeField] private Timer oxygenTimer;
+    [SerializeField] private float oxygenDamage;
+
     private float timer;
     private bool waterFlag;
+    private bool gameClearFlag;
+    private bool gameOverFlag;
 
     //水中フラグを取得する
     public static bool GetWaterFlag()
@@ -55,6 +60,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         gameTimer.UpdateTimer(Time.deltaTime);
+
+        oxygenTimer.DoUpdate(Time.deltaTime);
+        if (oxygenTimer.IsEnd())
+        {
+            var value = oxygenDamage;
+            if (GetWaterFlag()) value = -value;
+            AddOxygenValue( value );
+            oxygenTimer.Reset();
+        }
     }
 
     //ゲームの初期化処理
