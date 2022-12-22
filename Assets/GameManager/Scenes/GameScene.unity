@@ -310,9 +310,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3509758481537727071, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3509758481666678386, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
       propertyPath: m_Name
       value: Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509758481666678386, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3509758481666678388, guid: 7136210748d60de4a9d11480da25f1a7, type: 3}
       propertyPath: m_RootOrder
@@ -513,6 +521,7 @@ MonoBehaviour:
   jumpup: 5
   jumpdown: 0.05
   velocity: {x: 0, y: 0}
+  Groundcount: 0
 --- !u!114 &1684321548
 MonoBehaviour:
   m_ObjectHideFlags: 0
