@@ -7,27 +7,33 @@ public class move : MonoBehaviour
    
     public float speed;
     public float speedwater;
+    Rigidbody2D rb;
+    public Vector2 velocity;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = this.GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
+        velocity = Vector2.zero;
         bool waterFlag = GameManager.GetWaterFlag();
         if (waterFlag == false)
         {
             if (Input.GetKey(KeyCode.D))  //
             {
-
-                transform.Translate(speed * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
+                velocity.x = speed * Time.deltaTime;
+                
+                //transform.Translate(speed * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
 
             }
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Translate(-speed * Time.deltaTime, 0, 0);
+                velocity.x = -speed * Time.deltaTime;
+                //transform.Translate(-speed * Time.deltaTime, 0, 0);
 
             }
         }
@@ -35,15 +41,17 @@ public class move : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D))  //
             {
-
-                transform.Translate(speedwater * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
+                velocity.x = speedwater * Time.deltaTime;
+                //transform.Translate(speedwater * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
 
             }
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Translate(-speedwater * Time.deltaTime, 0, 0);
+                velocity.x = -speedwater * Time.deltaTime;
+                //transform.Translate(-speedwater * Time.deltaTime, 0, 0);
 
             }
         }
+        rb.velocity += velocity;
     }
 }

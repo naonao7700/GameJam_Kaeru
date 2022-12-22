@@ -508,10 +508,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa59194818cf754c85c71360d14c305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump: 3
+  Jump: 8
   interbal: 0
-  jumpup: 0.1
+  jumpup: 5
   jumpdown: 0.05
+  velocity: {x: 0, y: 0}
 --- !u!114 &1684321548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,8 +525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db174ddc36528564cb5e653df4b13d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  speedwater: 10
+  speed: 10
+  speedwater: 50
+  velocity: {x: 0, y: 0}
 --- !u!114 &1684321549
 MonoBehaviour:
   m_ObjectHideFlags: 0
