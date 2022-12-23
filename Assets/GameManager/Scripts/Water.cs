@@ -5,52 +5,74 @@ using UnityEngine.UI;
 
 public class Water : MonoBehaviour
 {
-    [SerializeField] private RectTransform rect;
-    [SerializeField] private Image image;
+	public Vector3 minPos;	//êÖà Ç™ç≈í·ÇÃç¿ïW
+	public Vector3 maxPos;  //êÖà Ç™ç≈çÇÇÃç¿ïW
 
-    [SerializeField] private Vector3 waterMaxPos;
-    [SerializeField] private Vector3 waterMinPos;
-    [SerializeField] private Timer waterTimer;
-    [SerializeField] private AnimationCurve waterCurve;
+	[SerializeField] private float value;
 
-    private Vector3 startPos;
-    private Vector3 endPos;
-    private bool waterFlag;
-
-    public bool GetWaterFlag() => waterFlag;
-
-    public void SetWaterFlag( bool value )
+	public void SetWaterValue( float value )
     {
-        waterFlag = value;
-        waterTimer.Reset();
-        if( value )
-        {
-            startPos = waterMinPos;
-            endPos = waterMaxPos;
-        }
-        else
-        {
-            startPos = waterMaxPos;
-            endPos = waterMinPos;
-        }
+		if (value < 0.0f) value = 0.0f;
+		else if (value > 1.0f) value = 1.0f;
+		this.value = value;
+		transform.localPosition = Vector3.Lerp(minPos, maxPos, this.value );
     }
 
-    // Start is called before the first frame update
-    void Start()
+	//êÖà Çâ¡éZÇ∑ÇÈèàóù
+	public void AddWaterValue( float value )
     {
-        rect = GetComponent<RectTransform>();
-    }
+		this.value += value;
+		if (this.value < 0.0f) this.value = 0.0f;
+		if (this.value > 1.0f) this.value = 1.0f;
+		transform.localPosition = Vector3.Lerp(minPos, maxPos, this.value );
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        waterTimer.DoUpdate(Time.deltaTime);
-        if( !waterTimer.IsEnd() )
-		{
-            var t = waterTimer.GetRate();
-            t = waterCurve.Evaluate(t);
-            rect.anchoredPosition = Vector3.Lerp(startPos, endPos, t);
-		}
-        
-    }
+	//  [SerializeField] private RectTransform rect;
+	//  [SerializeField] private Image image;
+
+	//  [SerializeField] private Vector3 waterMaxPos;
+	//  [SerializeField] private Vector3 waterMinPos;
+	//  [SerializeField] private Timer waterTimer;
+	//  [SerializeField] private AnimationCurve waterCurve;
+
+	//  private Vector3 startPos;
+	//  private Vector3 endPos;
+	//  private bool waterFlag;
+
+	//  public bool GetWaterFlag() => waterFlag;
+
+	//  public void SetWaterFlag( bool value )
+	//  {
+	//      waterFlag = value;
+	//      waterTimer.Reset();
+	//      if( value )
+	//      {
+	//          startPos = waterMinPos;
+	//          endPos = waterMaxPos;
+	//      }
+	//      else
+	//      {
+	//          startPos = waterMaxPos;
+	//          endPos = waterMinPos;
+	//      }
+	//  }
+
+	//  // Start is called before the first frame update
+	//  void Start()
+	//  {
+	//      rect = GetComponent<RectTransform>();
+	//  }
+
+	//  // Update is called once per frame
+	//  void Update()
+	//  {
+	//      waterTimer.DoUpdate(Time.deltaTime);
+	//      if( !waterTimer.IsEnd() )
+	//{
+	//          var t = waterTimer.GetRate();
+	//          t = waterCurve.Evaluate(t);
+	//          rect.anchoredPosition = Vector3.Lerp(startPos, endPos, t);
+	//}
+
+	//  }
 }

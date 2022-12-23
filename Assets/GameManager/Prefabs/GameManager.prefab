@@ -451,8 +451,9 @@ MonoBehaviour:
   oxygenTimer:
     count: 0
     time: 0.01
-  oxygenDownValue: 0.25
+  oxygenDownValue: 0.1
   oxygenUpValue: 0.5
+  gameClearFlag: 0
 --- !u!1 &3698081404197108539
 GameObject:
   m_ObjectHideFlags: 0

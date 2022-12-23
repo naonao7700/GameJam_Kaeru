@@ -32,22 +32,26 @@ public class Player : MonoBehaviour
 	private void Update()
 	{
 		//水位を切り替える
-		if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
-		{
-			var gravity = groundGravityScale;
-			GameManager.OnWaterChange(!GameManager.GetWaterFlag());
-			if (GameManager.GetWaterFlag()) gravity = waterGravityScale;
-			rb.gravityScale = gravity;
-		}
+		if( Input.GetKey( KeyCode.Space))
+        {
+			GameManager.OnWaterUp();
+        }
+		//if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
+		//{
+		//	var gravity = groundGravityScale;
+		//	GameManager.OnWaterChange(!GameManager.GetWaterFlag());
+		//	if (GameManager.GetWaterFlag()) gravity = waterGravityScale;
+		//	rb.gravityScale = gravity;
+		//}
 
 		//移動
 		Move();
 
-		//ジャンプ処理
-		if( Input.GetKeyDown(KeyCode.Space))
-		{
-			OnJump();
-		}
+		////ジャンプ処理
+		//if( Input.GetKeyDown(KeyCode.Space))
+		//{
+		//	OnJump();
+		//}
 	}
 
 	//ジャンプする
@@ -78,7 +82,7 @@ public class Player : MonoBehaviour
 		//横方向の移動
 		var inputX = Input.GetAxis("Horizontal");
 		var moveSpeed = groundSpeed;
-		if (GameManager.GetWaterFlag()) moveSpeed = waterSpeed;
+		//if (GameManager.GetWaterFlag()) moveSpeed = waterSpeed;
 		velocity.x = moveSpeed * inputX;
 		rb.velocity = velocity;
 	}
