@@ -12703,6 +12703,8 @@ MonoBehaviour:
   waterSpeed: 8
   waterJumpPower: 6
   waterAirJumpPower: 2
+  groundGravityScale: 1
+  waterGravityScale: 0.5
   velocity: {x: 0, y: 0}
   groundCount: 0
 --- !u!50 &1199302484
