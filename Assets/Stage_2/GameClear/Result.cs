@@ -29,7 +29,7 @@ public class Result : MonoBehaviour
         if (cursorNum == false)
         {
             TitleButton.color = new Color32(0, 0, 0 , 0);
-            ReStartButton.color = new Color32(255, 0, 0, 255);
+            ReStartButton.color = new Color32(255, 255, 255, 255);
 
             if (Input.GetKey(KeyCode.Space))
             {
@@ -40,7 +40,7 @@ public class Result : MonoBehaviour
         // Title‘I‘ð’†
         if (cursorNum)
         {
-            TitleButton.color = new Color32(255, 0, 0, 255);
+            TitleButton.color = new Color32(255, 255, 255, 255);
             ReStartButton.color = new Color32(0, 0, 0, 0);
 
             if (Input.GetKey(KeyCode.Space))
