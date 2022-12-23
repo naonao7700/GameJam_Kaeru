@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float oxygenUpValue;   //酸素回復量
 
     //変数
-    private float timer;
+    //private float timer;
     [SerializeField] private bool gameClearFlag;
     private bool gameOverFlag;
     private bool onWaterUpFlag; //水位を上げているフラグ
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     public static void OnWaterUp() => gameManager.OnWaterUpCore();
 
     //ゲーム時間を取得する
-    public static float GetTime() => gameManager.timer;
+    //public static float GetTime() => gameManager.timer;
 
     //ゲーム時間のテキストを取得する
     public static string GetTimeText(float time) => gameManager.gameTimer.GetTimeText(time);
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
     {
         gameClearFlag = true;
         //タイムを止める
-        TimeSave.timeSave.SetTime(timer);
+        TimeSave.timeSave.SetTime(gameTimer.GetTime());
     }
 
     //ゲームオーバー時の処理
