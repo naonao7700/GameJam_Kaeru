@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Alga
+  m_Name: Bubble
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: ecb0f76ca79e28449aeb1be295d171d6, type: 3}
-  m_Color: {r: 0.2649939, g: 0.8679245, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cf2f54e75cf2514468622a2c1b601f5e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
     e01: 0
