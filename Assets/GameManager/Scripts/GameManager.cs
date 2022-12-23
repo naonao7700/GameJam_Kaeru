@@ -56,6 +56,13 @@ public class GameManager : MonoBehaviour
     //水位を挙げる関数
     public static void OnWaterUp() => gameManager.OnWaterUpCore();
 
+    //ゲーム時間を取得する
+    public static float GetTime() => gameManager.timer;
+
+    //ゲーム時間のテキストを取得する
+    public static string GetTimeText(float time) => gameManager.gameTimer.GetTimeText(time);
+
+
     //=====================================================================
     //関数の実装
     //=====================================================================

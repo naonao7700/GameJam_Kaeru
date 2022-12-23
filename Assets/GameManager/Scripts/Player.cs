@@ -5,17 +5,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	[SerializeField] private Rigidbody2D rb;
-	[SerializeField] private float groundSpeed;	//地上の移動スピード
-	[SerializeField] private float groundJumpPower;	//地上のジャンプ力
-	[SerializeField] private float waterSpeed;	//水中移動スピード
-	[SerializeField] private float waterJumpPower;	//水中のジャンプ力
-	[SerializeField] private float waterAirJumpPower;   //水中の空中でのジャンプ力
-	[SerializeField] private float groundGravityScale;  //地上での重力
-	[SerializeField] private float waterGravityScale;	//水中での重力
+	[SerializeField] private float groundSpeed; //地上の移動スピード
+	[SerializeField] private GameObject model;  //モデル
+	[SerializeField] private Animator animator;	//アニメーター
+
+	//[SerializeField] private float groundJumpPower;	//地上のジャンプ力
+	//[SerializeField] private float waterSpeed;	//水中移動スピード
+	//[SerializeField] private float waterJumpPower;	//水中のジャンプ力
+	//[SerializeField] private float waterAirJumpPower;   //水中の空中でのジャンプ力
+	//[SerializeField] private float groundGravityScale;  //地上での重力
+	//[SerializeField] private float waterGravityScale;	//水中での重力
 
 	[SerializeField] private Vector2 velocity;  //移動量
 
-	[SerializeField] private int groundCount;//触れている地面の数
+	//[SerializeField] private int groundCount;//触れている地面の数
 
 	private void Start()
 	{
@@ -23,11 +26,11 @@ public class Player : MonoBehaviour
 		velocity = Vector2.zero;
 	}
 
-	//着地しているか判定
-	private bool IsGround()
-	{
-		return groundCount > 0;
-	}
+	////着地しているか判定
+	//private bool IsGround()
+	//{
+	//	return groundCount > 0;
+	//}
 
 	private void Update()
 	{
@@ -55,23 +58,23 @@ public class Player : MonoBehaviour
 	}
 
 	//ジャンプする
-	void OnJump()
-	{
-		var jumpPower = groundJumpPower;
-		if (GameManager.GetWaterFlag()) jumpPower = waterJumpPower;
+	//void OnJump()
+	//{
+	//	var jumpPower = groundJumpPower;
+	//	if (GameManager.GetWaterFlag()) jumpPower = waterJumpPower;
 
-		if ( GameManager.GetWaterFlag() )
-		{
-			if (!IsGround()) jumpPower = waterAirJumpPower;	//空中ジャンプ
-		}
-		else
-		{
-			//地上では、着地中じゃないとジャンプ不可
-			if (!IsGround()) return;
-		}
-		var v = Vector2.up * jumpPower;
-		rb.velocity += v;
-	}
+	//	if ( GameManager.GetWaterFlag() )
+	//	{
+	//		if (!IsGround()) jumpPower = waterAirJumpPower;	//空中ジャンプ
+	//	}
+	//	else
+	//	{
+	//		//地上では、着地中じゃないとジャンプ不可
+	//		if (!IsGround()) return;
+	//	}
+	//	var v = Vector2.up * jumpPower;
+	//	rb.velocity += v;
+	//}
 
 	//移動する
 	void Move()
@@ -85,16 +88,19 @@ public class Player : MonoBehaviour
 		//if (GameManager.GetWaterFlag()) moveSpeed = waterSpeed;
 		velocity.x = moveSpeed * inputX;
 		rb.velocity = velocity;
-	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		groundCount++;
-	}
+		float x = Mathf.Sign(velocity.x);
+		model.transform.rotation = Quaternion.Euler(0, 90 * x, 0);
 
-	private void OnCollisionExit2D(Collision2D collision)
-	{
-		groundCount--;
+	}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        animator.SetBool("Swim", true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+		animator.SetBool("Swim", false);
 	}
 
 }

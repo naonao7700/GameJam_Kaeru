@@ -9,7 +9,7 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private float time;
     [SerializeField] private Text text;
 
-    string GetTimeText(float time)
+    public string GetTimeText(float time)
     {
         int min = (int)(time / 60);
         int sec = (int)(time % 60);
