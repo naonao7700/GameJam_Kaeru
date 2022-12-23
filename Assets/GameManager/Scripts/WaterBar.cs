@@ -17,7 +17,7 @@ public class WaterBar : MonoBehaviour
 
     public void AddValue( float v )
     {
-        value = v;
+        value += v;
         if (value < 0) value = 0;
         if (value > max) value = max;
         image.fillAmount = GetRate();
