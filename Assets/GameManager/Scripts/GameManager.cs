@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private OxygenBar oxygenBar;   //酸素ゲージ
     [SerializeField] private GameTimer gameTimer;    //ゲームタイマー
     [SerializeField] private Water water;   //水
-    [SerializeField] private WaterChangeTimer waterTimer;   //水位変更のクールタイムタイマー
+    //[SerializeField] private WaterChangeTimer waterTimer;   //水位変更のクールタイムタイマー
 
     [SerializeField] private Timer oxygenTimer; //時間経過で変わる酸素のタイマー
     [SerializeField] private float oxygenDownValue; //酸素減少量
@@ -26,13 +26,14 @@ public class GameManager : MonoBehaviour
     private float timer;
     [SerializeField] private bool gameClearFlag;
     private bool gameOverFlag;
+    private bool onWaterUpFlag; //水位を上げているフラグ
 
     //=====================================================================
     //外部参照用関数(プログラマー班はここの関数を呼び出して下さい)
     //=====================================================================
 
     //水中フラグを取得する
-    public static bool GetWaterFlag() => gameManager.water.GetWaterFlag();
+    public static bool GetWaterFlag() => false;//gameManager.water.GetWaterFlag();
 
     //水中に切り替えるする(waterFlag==trueで水中、falseで地上へ切り替える)
     public static void OnWaterChange(bool waterFlag) => gameManager.SetWaterFlag(waterFlag);
@@ -49,6 +50,12 @@ public class GameManager : MonoBehaviour
     //ゲームをクリアしたときに呼び出す関数
     public static void OnGameClear() => gameManager.OnClear();
 
+    //ゲームオーバーの時に呼び出す関数
+    public static void OnGameOver() => gameManager.OnMiss();
+
+    //水位を挙げる関数
+    public static void OnWaterUp() => gameManager.OnWaterUpCore();
+
     //=====================================================================
     //関数の実装
     //=====================================================================
@@ -56,16 +63,19 @@ public class GameManager : MonoBehaviour
     //ゲームの初期化処理
     private void GameInit()
     {
+        onWaterUpFlag = false;
+
         //タイムを初期化
         gameTimer.ResetTimer();
         //酸素ゲージを初期化
         SetOxygenValue(100);
 
         //クールタイムをリセットする
-        waterTimer.ResetTimer();
+        //waterTimer.ResetTimer();
 
         //水位をリセットする
-        water.SetWaterFlag(false);
+        water.SetWaterValue(0.0f);
+        //water.SetWaterFlag(false);
     }
 
     //ゲームの実行処理
@@ -78,6 +88,13 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("GameScene");
             }
             return;
+        }
+        else if( gameOverFlag )
+        {
+            if( Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("GameScene");
+            }
         }
 
         //ゲームタイムを更新
@@ -93,8 +110,18 @@ public class GameManager : MonoBehaviour
             oxygenTimer.Reset();
         }
 
+        //水位を自然に落とす]
+        if( onWaterUpFlag )
+        {
+            onWaterUpFlag = false;
+        }
+        else
+        {
+            water.AddWaterValue(-0.01f);
+        }
+
         //水位クールタイムを更新
-        waterTimer.DoUpdate(deltaTime);
+        //waterTimer.DoUpdate(deltaTime);
 
     }
 
@@ -105,18 +132,31 @@ public class GameManager : MonoBehaviour
         //タイムを止める
     }
 
+    //ゲームオーバー時の処理
+    private void OnMiss()
+    {
+        gameOverFlag = true;
+    }
+    
+    //水位を上げる処理
+    private void OnWaterUpCore()
+    {
+        onWaterUpFlag = true;
+        water.AddWaterValue(0.01f);
+    }
+
 
     //水位を変更する処理(クールタイム中は無効)
     private void SetWaterFlag( bool waterFlag )
 	{
-        //クールタイム中は無効
-        if (!waterTimer.GetChangeFlag()) return;
+        ////クールタイム中は無効
+        //if (!waterTimer.GetChangeFlag()) return;
 
-        //水位を変更する
-        water.SetWaterFlag(waterFlag);
+        ////水位を変更する
+        //water.SetWaterFlag(waterFlag);
 
-        //クールタイムを設定する
-        waterTimer.ResetTimer();
+        ////クールタイムを設定する
+        //waterTimer.ResetTimer();
 	}
 
 
