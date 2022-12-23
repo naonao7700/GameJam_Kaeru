@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private Rigidbody2D rb;
 	[SerializeField] private float groundSpeed; //地上の移動スピード
 	[SerializeField] private GameObject model;  //モデル
-	[SerializeField] private Animator animator;	//アニメーター
+	[SerializeField] private Animator animator; //アニメーター
+	[SerializeField] private PlayerSound sound;
 
 	//[SerializeField] private float groundJumpPower;	//地上のジャンプ力
 	//[SerializeField] private float waterSpeed;	//水中移動スピード

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class move : MonoBehaviour
 {
-   
+
     public float speed;
     public float speedwater;
     Rigidbody2D rb;
@@ -27,33 +27,32 @@ public class move : MonoBehaviour
             if (Input.GetKey(KeyCode.D))  //
             {
                 velocity.x = speed;// * Time.deltaTime;
-                
-                //transform.Translate(speed * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
+
 
             }
+
             if (Input.GetKey(KeyCode.A))
             {
                 velocity.x = -speed;// * Time.deltaTime;
-                //transform.Translate(-speed * Time.deltaTime, 0, 0);
+                                    //transform.Translate(-speed * Time.deltaTime, 0, 0);
 
             }
         }
-        if(waterFlag == true)
+        if (waterFlag == true)
         {
             if (Input.GetKey(KeyCode.D))  //
             {
                 velocity.x = speedwater;// * Time.deltaTime;
-                //transform.Translate(speedwater * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
+                                        //transform.Translate(speedwater * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
 
             }
             if (Input.GetKey(KeyCode.A))
             {
                 velocity.x = -speedwater;// * Time.deltaTime;
-                //transform.Translate(-speedwater * Time.deltaTime, 0, 0);
 
             }
+            //rb.velocity += velocity;
+            rb.velocity = velocity;
         }
-        //rb.velocity += velocity;
-        rb.velocity = velocity;
     }
 }

@@ -6,12 +6,19 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
-    [SerializeField] private AudioClip damage;
-    [SerializeField] private AudioClip swim;
-    [SerializeField] private AudioClip bubble;
-    [SerializeField] private AudioClip stageClear;
-    [SerializeField] private AudioClip waterUp;
-    [SerializeField] private AudioClip waterDown;
+    [SerializeField] private AudioSource audioSource;
+    public AudioClip jump;
+    public AudioClip swim;
+    //public AudioClip damage;
+    //public AudioClip bubble;
+    //public AudioClip stageClear;
+    //public AudioClip waterUp;
+    //public AudioClip waterDown;
+
+    public void PlaySE( AudioClip clip )
+    {
+        audioSource.PlayOneShot(clip);
+    }
 
     // Start is called before the first frame update
     void Start()
