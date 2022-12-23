@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //ゲームを総合的に管理するクラス
 //主に一つだけのものを扱う
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     //変数
     private float timer;
-    private bool gameClearFlag;
+    [SerializeField] private bool gameClearFlag;
     private bool gameOverFlag;
 
     //=====================================================================
@@ -44,6 +45,9 @@ public class GameManager : MonoBehaviour
 
     //酸素ゲージを設定する
     public static void SetOxygenValue(float value) => gameManager.oxygenBar.SetValue(value);
+
+    //ゲームをクリアしたときに呼び出す関数
+    public static void OnGameClear() => gameManager.OnClear();
 
     //=====================================================================
     //関数の実装
@@ -67,6 +71,15 @@ public class GameManager : MonoBehaviour
     //ゲームの実行処理
     private void GameUpdate( float deltaTime )
 	{
+        if (gameClearFlag)
+        {
+            if( Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("GameScene");
+            }
+            return;
+        }
+
         //ゲームタイムを更新
         gameTimer.UpdateTimer(Time.deltaTime);
 
@@ -83,6 +96,13 @@ public class GameManager : MonoBehaviour
         //水位クールタイムを更新
         waterTimer.DoUpdate(deltaTime);
 
+    }
+
+    //ゲームをクリアしたときの処理
+    private void OnClear()
+    {
+        gameClearFlag = true;
+        //タイムを止める
     }
 
 
