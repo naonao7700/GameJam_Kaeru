@@ -43,4 +43,13 @@ public class TimeSave : MonoBehaviour
         ranking[index] = time;
     }
 
+    public string GetTimeText(float time)
+    {
+        int min = (int)(time / 60);
+        int sec = (int)(time % 60);
+        int ms = (int)(time % 1 * 1000);
+        return min.ToString("D1") + ":" + sec.ToString("D2") + ":" + ms.ToString("D3");
+    }
+
+
 }
