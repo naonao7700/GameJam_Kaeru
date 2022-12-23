@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
     {
         gameClearFlag = true;
         //タイムを止める
+        TimeSave.timeSave.SetTime(timer);
     }
 
     //ゲームオーバー時の処理
