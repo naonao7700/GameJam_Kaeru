@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            GameManager.AddWaterBarValue();
             Destroy(gameObject);
         }
     }

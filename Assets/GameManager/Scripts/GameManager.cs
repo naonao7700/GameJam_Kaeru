@@ -73,7 +73,10 @@ public class GameManager : MonoBehaviour
     //ƒvƒŒƒCƒ„[‚ğ“®‚©‚¹‚é‚©”»’è
     public static bool CanPlay() => !(gameManager.gameOverFlag || gameManager.gameClearFlag);
 
-    public static TimeSave GetTimeSave() => TimeSave.timeSave;
+    public static void AddWaterBarValue()
+    {
+        gameManager.waterBar.SetRate(1.0f);
+    }
 
     //=====================================================================
     //ŠÖ”‚ÌÀ‘•
