@@ -94,6 +94,8 @@ public class Player : MonoBehaviour
 		float x = Mathf.Sign(velocity.x);
 		model.transform.rotation = Quaternion.Euler(0, 90 * x, 0);
 
+		animator.SetBool("Move", velocity.x != 0.0f);
+
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private static GameManager gameManager; //シングルトンにする
 
     [SerializeField] private OxygenBar oxygenBar;   //酸素ゲージ
+    [SerializeField] private WaterBar waterBar; //水位ゲージ
     [SerializeField] private GameTimer gameTimer;    //ゲームタイマー
     [SerializeField] private Water water;   //水
     [SerializeField] private GameOverObject gameOverObject;
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
     //プレイヤーを動かせるか判定
     public static bool CanPlay() => !(gameManager.gameOverFlag || gameManager.gameClearFlag);
 
+    public static TimeSave GetTimeSave() => TimeSave.timeSave;
+
     //=====================================================================
     //関数の実装
     //=====================================================================
@@ -113,15 +116,15 @@ public class GameManager : MonoBehaviour
         //ゲームタイムを更新
         gameTimer.UpdateTimer(Time.deltaTime);
 
-        //酸素ゲージを更新
-        oxygenTimer.DoUpdate(Time.deltaTime);
-        if (oxygenTimer.IsEnd())
-        {
-            var value = oxygenUpValue;
-            if (GetWaterFlag()) value = -oxygenDownValue;
-            AddOxygenValue(value);
-            oxygenTimer.Reset();
-        }
+        ////酸素ゲージを更新
+        //oxygenTimer.DoUpdate(Time.deltaTime);
+        //if (oxygenTimer.IsEnd())
+        //{
+        //    var value = oxygenUpValue;
+        //    if (GetWaterFlag()) value = -oxygenDownValue;
+        //    AddOxygenValue(value);
+        //    oxygenTimer.Reset();
+        //}
 
         //水位を自然に落とす]
         if( onWaterUpFlag )
@@ -157,6 +160,7 @@ public class GameManager : MonoBehaviour
     {
         onWaterUpFlag = true;
         water.AddWaterValue(0.01f);
+        
     }
 
 
