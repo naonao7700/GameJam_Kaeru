@@ -9,13 +9,14 @@ public class Water : MonoBehaviour
 	public Vector3 maxPos;  //…ˆÊ‚ªÅ‚‚ÌÀ•W
 
 	[SerializeField] private float value;
+	[SerializeField] private float max;
 
 	public void SetWaterValue( float value )
     {
 		if (value < 0.0f) value = 0.0f;
-		else if (value > 1.0f) value = 1.0f;
+		else if (value > max) value = max;
 		this.value = value;
-		transform.localPosition = Vector3.Lerp(minPos, maxPos, this.value );
+		transform.localPosition = Vector3.Lerp(minPos, maxPos, this.value / max );
     }
 
 	//…ˆÊ‚ğ‰ÁZ‚·‚éˆ—
@@ -23,8 +24,8 @@ public class Water : MonoBehaviour
     {
 		this.value += value;
 		if (this.value < 0.0f) this.value = 0.0f;
-		if (this.value > 1.0f) this.value = 1.0f;
-		transform.localPosition = Vector3.Lerp(minPos, maxPos, this.value );
+		if (this.value > max) this.value = max;
+		transform.localPosition = Vector3.Lerp(minPos, maxPos, this.value / max );
 	}
 
 	//  [SerializeField] private RectTransform rect;

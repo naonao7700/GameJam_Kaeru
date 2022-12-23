@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float oxygenDownValue; //酸素減少量
     [SerializeField] private float oxygenUpValue;   //酸素回復量
 
+    [SerializeField] private float waterUpValue;    //水位の回復量
+    [SerializeField] private float waterDownValue;  //水位の減少量
+
+    [SerializeField] private float waterBarUpValue; //水位ゲージの回復量
+    [SerializeField] private float waterBarDownValue;   //水位ゲージの減少量
+
     //変数
     //private float timer;
     [SerializeField] private bool gameClearFlag;
@@ -88,6 +94,7 @@ public class GameManager : MonoBehaviour
 
         //水位をリセットする
         water.SetWaterValue(0.0f);
+        waterBar.SetRate(1.0f);
         //water.SetWaterFlag(false);
     }
 
@@ -133,8 +140,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            water.AddWaterValue(-0.01f);
-            waterBar.AddValue(0.01f);
+            //water.AddWaterValue(-0.01f);
+            water.AddWaterValue(-waterDownValue);   //水位を減らす
+            waterBar.AddValue( waterBarUpValue );  //ゲージを回復
         }
 
         //水位クールタイムを更新
@@ -160,13 +168,15 @@ public class GameManager : MonoBehaviour
     //水位を上げる処理
     private void OnWaterUpCore()
     {
-        if( waterBar.GetRate() > 0.0f )
+        if ( !waterBar.CanUpFlag())
         {
             return;
         }
         onWaterUpFlag = true;
-        water.AddWaterValue(0.01f);
-        waterBar.AddValue(-0.01f);
+        //water.AddWaterValue(0.1f);
+        //waterBar.AddValue( -1.0f );
+        water.AddWaterValue(waterUpValue);  //水位を上げる
+        waterBar.AddValue(-waterBarDownValue);  //ゲージを下げる
         
     }
 
