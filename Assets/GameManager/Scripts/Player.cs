@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private float waterSpeed;	//水中移動スピード
 	[SerializeField] private float waterJumpPower;	//水中のジャンプ力
 	[SerializeField] private float waterAirJumpPower;   //水中の空中でのジャンプ力
+	[SerializeField] private float groundGravityScale;  //地上での重力
+	[SerializeField] private float waterGravityScale;	//水中での重力
 
 	[SerializeField] private Vector2 velocity;  //移動量
 
@@ -32,9 +34,9 @@ public class Player : MonoBehaviour
 		//水位を切り替える
 		if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
 		{
-			var gravity = 1.0f;
+			var gravity = groundGravityScale;
 			GameManager.OnWaterChange(!GameManager.GetWaterFlag());
-			if (GameManager.GetWaterFlag()) gravity = 0.5f;
+			if (GameManager.GetWaterFlag()) gravity = waterGravityScale;
 			rb.gravityScale = gravity;
 		}
 
