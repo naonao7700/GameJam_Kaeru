@@ -16,9 +16,9 @@ public class TimeSave : MonoBehaviour
         timeSave = go.AddComponent<TimeSave>();
         timeSave.ranking = new float[3]
         {
-            99,
-            99,
-            99
+            5999.99f,
+            5999.99f,
+            5999.99f,
         };
     }
 
