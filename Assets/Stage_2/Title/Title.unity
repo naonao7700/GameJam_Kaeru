@@ -464,6 +464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cdaf5b0ff2f754fb0be7caeedf3639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 1030171172}
+  flash_speed: 1
   nextScene: GameScene
 --- !u!1 &1446311141
 GameObject:
