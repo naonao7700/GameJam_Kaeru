@@ -19,20 +19,21 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = Vector2.zero;
+        //velocity = Vector2.zero;
+        velocity = rb.velocity;
         bool waterFlag = GameManager.GetWaterFlag();
         if (waterFlag == false)
         {
             if (Input.GetKey(KeyCode.D))  //
             {
-                velocity.x = speed * Time.deltaTime;
+                velocity.x = speed;// * Time.deltaTime;
                 
                 //transform.Translate(speed * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
 
             }
             if (Input.GetKey(KeyCode.A))
             {
-                velocity.x = -speed * Time.deltaTime;
+                velocity.x = -speed;// * Time.deltaTime;
                 //transform.Translate(-speed * Time.deltaTime, 0, 0);
 
             }
@@ -41,17 +42,18 @@ public class move : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D))  //
             {
-                velocity.x = speedwater * Time.deltaTime;
+                velocity.x = speedwater;// * Time.deltaTime;
                 //transform.Translate(speedwater * Time.deltaTime, 0, 0);      //AD‚ÅˆÚ“®
 
             }
             if (Input.GetKey(KeyCode.A))
             {
-                velocity.x = -speedwater * Time.deltaTime;
+                velocity.x = -speedwater;// * Time.deltaTime;
                 //transform.Translate(-speedwater * Time.deltaTime, 0, 0);
 
             }
         }
-        rb.velocity += velocity;
+        //rb.velocity += velocity;
+        rb.velocity = velocity;
     }
 }
