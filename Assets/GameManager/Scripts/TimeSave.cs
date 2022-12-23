@@ -9,6 +9,8 @@ public class TimeSave : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     static void Init()
     {
+        if (timeSave != null) return;
+
         var go = new GameObject("TimeSave");
         DontDestroyOnLoad(go);
         timeSave = go.AddComponent<TimeSave>();

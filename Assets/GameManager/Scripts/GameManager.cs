@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
         else
         {
             water.AddWaterValue(-0.01f);
+            waterBar.AddValue(0.01f);
         }
 
         //水位クールタイムを更新
@@ -159,8 +160,13 @@ public class GameManager : MonoBehaviour
     //水位を上げる処理
     private void OnWaterUpCore()
     {
+        if( waterBar.GetRate() > 0.0f )
+        {
+            return;
+        }
         onWaterUpFlag = true;
         water.AddWaterValue(0.01f);
+        waterBar.AddValue(-0.01f);
         
     }
 
