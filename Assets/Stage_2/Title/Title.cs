@@ -13,7 +13,7 @@ public class Title : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Return))
+        if(Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene(nextScene);
         }

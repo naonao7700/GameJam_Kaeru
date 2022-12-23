@@ -19,6 +19,6 @@ public class Needle : MonoBehaviour
     // ‚ ‚½‚è”»’è
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameManager.AddOxygenValue(value);
+        //GameManager.OnGameOver();
     }
 }
