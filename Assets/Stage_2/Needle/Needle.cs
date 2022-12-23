@@ -19,6 +19,10 @@ public class Needle : MonoBehaviour
     // ‚ ‚½‚è”»’è
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //GameManager.OnGameOver();
+        if( collision.gameObject.tag == "Player" )
+        {
+            GameManager.OnGameOver();
+
+        }
     }
 }

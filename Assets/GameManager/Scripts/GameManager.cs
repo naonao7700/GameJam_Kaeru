@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private OxygenBar oxygenBar;   //酸素ゲージ
     [SerializeField] private GameTimer gameTimer;    //ゲームタイマー
     [SerializeField] private Water water;   //水
+    [SerializeField] private GameOverObject gameOverObject;
     //[SerializeField] private WaterChangeTimer waterTimer;   //水位変更のクールタイムタイマー
 
     [SerializeField] private Timer oxygenTimer; //時間経過で変わる酸素のタイマー
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
     //ゲーム時間のテキストを取得する
     public static string GetTimeText(float time) => gameManager.gameTimer.GetTimeText(time);
 
+    //プレイヤーを動かせるか判定
+    public static bool CanPlay() => !(gameManager.gameOverFlag || gameManager.gameClearFlag);
 
     //=====================================================================
     //関数の実装
@@ -98,10 +101,13 @@ public class GameManager : MonoBehaviour
         }
         else if( gameOverFlag )
         {
+            if (!gameOverObject.IsEnd()) return;
+
             if( Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("Title");
             }
+            return;
         }
 
         //ゲームタイムを更新
@@ -143,6 +149,7 @@ public class GameManager : MonoBehaviour
     private void OnMiss()
     {
         gameOverFlag = true;
+        gameOverObject.OnGameOver();
     }
     
     //水位を上げる処理

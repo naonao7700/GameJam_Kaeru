@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
+		if (!GameManager.CanPlay()) return;
+
 		//…ˆÊ‚ğØ‚è‘Ö‚¦‚é
 		if( Input.GetKey( KeyCode.Space))
         {

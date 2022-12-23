@@ -14,7 +14,7 @@ public class GameTimer : MonoBehaviour
         int min = (int)(time / 60);
         int sec = (int)(time % 60);
         int ms = (int)(time % 1 * 1000);
-        return min.ToString("D1") + "'" + sec.ToString("D2") + "'" + ms.ToString("D3");
+        return min.ToString("D1") + ":" + sec.ToString("D2") + ":" + ms.ToString("D3");
     }
 
     public void ResetTimer()
@@ -31,6 +31,6 @@ public class GameTimer : MonoBehaviour
 
     public void UpdateText()
     {
-        text.text = GetTimeText(time);
+        text.text = "TIME:" + GetTimeText(time);
     }
 }
