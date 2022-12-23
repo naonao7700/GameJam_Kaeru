@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalObject : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GoalObject : MonoBehaviour
             clearFlag = true;
             clearEffect.SetActive(true);
             clearEffect.transform.localScale = Vector3.zero;
+            GameManager.OnGameClear();
         }
     }
 
@@ -43,7 +45,7 @@ public class GoalObject : MonoBehaviour
             waitTimer.DoUpdate(Time.deltaTime);
             if( waitTimer.IsEnd())
             {
-                GameManager.OnGameClear();
+                SceneManager.LoadScene("GameClear");
             }
         }
     }
