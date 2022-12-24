@@ -9,11 +9,13 @@ public class GameOverObject : MonoBehaviour
     [SerializeField] private AnimationCurve curve;
 
     private bool gameOverFlag;
+    private bool seFlag;
 
     // Start is called before the first frame update
     void Start()
     {
         gameOverFlag = false;
+        seFlag = false;
         textObject.SetActive(false);
     }
 
@@ -38,5 +40,10 @@ public class GameOverObject : MonoBehaviour
         timer.DoUpdate(Time.deltaTime);
         var t = curve.Evaluate(timer.GetRate());
         textObject.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+        if( timer.IsEnd() && !seFlag )
+		{
+            PlayerSound.PlaySE(SEID.GameOver);
+            seFlag = true;
+		}
     }
 }

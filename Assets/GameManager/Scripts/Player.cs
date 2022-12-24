@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 	{
 		if (!GameManager.CanPlay())
 		{
+			animator.SetBool("Move", false);
+			animator.SetBool("Swim", false);
 			rb.velocity = Vector2.zero;
 			return;
 		}

@@ -20,6 +20,7 @@ public class GoalObject : MonoBehaviour
             clearEffect.SetActive(true);
             clearEffect.transform.localScale = Vector3.zero;
             GameManager.OnGameClear();
+            PlayerSound.PlaySE(SEID.GameClear);
         }
     }
 

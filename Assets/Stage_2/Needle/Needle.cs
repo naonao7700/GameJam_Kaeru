@@ -21,6 +21,7 @@ public class Needle : MonoBehaviour
     {
         if( collision.gameObject.tag == "Player" )
         {
+            PlayerSound.PlaySE(SEID.Damage);
             GameManager.OnGameOver();
 
         }
