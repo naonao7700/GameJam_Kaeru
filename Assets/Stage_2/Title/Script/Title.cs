@@ -6,23 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
-    public float time;
+    private float time;
 
     public string nextScene = "MainGame";
 
-     void Start()
-    {
-        //time = time;  
-    }
     void Update()
     {
-        time -= 1.0f * Time.deltaTime;
         if (time < 0)
         {
             if (Input.GetKey(KeyCode.Space))
             {
                 SceneManager.LoadScene(nextScene);
             }
+        }
+        else
+        {
+            time -= 1.0f * Time.deltaTime;
         }
     }
 }

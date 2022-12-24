@@ -22,6 +22,7 @@ public class Item : MonoBehaviour
         {
             GameManager.AddWaterBarValue();
             Destroy(gameObject);
+            PlayerSound.PlaySE(SEID.Bubble);
         }
     }
 }

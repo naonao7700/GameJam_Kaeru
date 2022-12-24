@@ -35,7 +35,13 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
-		if (!GameManager.CanPlay()) return;
+		if (!GameManager.CanPlay())
+		{
+			animator.SetBool("Move", false);
+			animator.SetBool("Swim", false);
+			rb.velocity = Vector2.zero;
+			return;
+		}
 
 		//…ˆÊ‚ğØ‚è‘Ö‚¦‚é
 		if( Input.GetKey( KeyCode.Space))
