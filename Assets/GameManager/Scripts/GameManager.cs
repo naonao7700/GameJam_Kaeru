@@ -213,7 +213,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
         GameUpdate(Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("GameScene");
+        }
+
     }
 
 }
