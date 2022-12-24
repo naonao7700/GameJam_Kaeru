@@ -46,26 +46,6 @@ public class Ranking : MonoBehaviour
             rankingText[i].text = TimeSave.timeSave.GetTimeText(time);
         }*/
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SceneManager.LoadScene("GameScene");
-        }
-    }
-    /// <summary>
-    /// ランキング呼び出し
-    /// </summary>
-    /*void GetRanking()
-    {
-        //ランキング呼び出し
-        for (int i = 0; i < ranking.Length; i++)
-        {
-            rankingValue[i] = PlayerPrefs.GetInt(ranking[i]);
-        }
-    }*/
     /// <summary>
     /// ランキング書き込み
     /// </summary>

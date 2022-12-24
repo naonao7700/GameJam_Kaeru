@@ -15,12 +15,12 @@ public class Result : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             cursorNum = 1;
         }
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             cursorNum = 0;
         }
@@ -31,7 +31,7 @@ public class Result : MonoBehaviour
             TitleButton.color = new Color32(0, 0, 0 , 0);
             ReStartButton.color = new Color32(255, 255, 255, 255);
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene(Scene_GameScene);
             }
@@ -43,7 +43,7 @@ public class Result : MonoBehaviour
             TitleButton.color = new Color32(255, 255, 255, 255);
             ReStartButton.color = new Color32(0, 0, 0, 0);
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene(Scene_Title);
             }
