@@ -10,23 +10,23 @@ public class Result : MonoBehaviour
     public string Scene_GameScene = "";
     public Image TitleButton;
     public Image ReStartButton;
-    private bool cursorNum = false;
+    private int cursorNum = 0;
 
     void Update()
     {
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            cursorNum = true;
+            cursorNum = 1;
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            cursorNum = false;
+            cursorNum = 0;
         }
 
-        // ReStart選択中
-        if (cursorNum == false)
+        // ReStart選択中(Left)
+        if (cursorNum == 0)
         {
             TitleButton.color = new Color32(0, 0, 0 , 0);
             ReStartButton.color = new Color32(255, 255, 255, 255);
@@ -37,8 +37,8 @@ public class Result : MonoBehaviour
             }
         }
 
-        // Title選択中
-        if (cursorNum)
+        // Title選択中(Right)
+        if (cursorNum == 1)
         {
             TitleButton.color = new Color32(255, 255, 255, 255);
             ReStartButton.color = new Color32(0, 0, 0, 0);

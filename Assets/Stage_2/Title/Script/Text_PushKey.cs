@@ -8,7 +8,7 @@ public class Text_PushKey : MonoBehaviour
     public Text text;
     public float flash_speed = 1.0f;
     private float time;
-    public float input_time;
+    private float input_time;
 
     void Start()
     {
@@ -18,10 +18,13 @@ public class Text_PushKey : MonoBehaviour
 
     void Update()
     {
-        input_time -= 1.0f * Time.deltaTime;
         if (input_time < 0)
         {
             text.color = GetAlphaColor(text.color);
+        }
+        else
+        {
+            input_time -= 1.0f * Time.deltaTime;
         }
     }
 
